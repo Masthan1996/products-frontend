@@ -1,0 +1,25 @@
+<h4>Geo Search</h4>
+<div class="row mb-3">
+  <div class="col-md-3">
+    <input class="form-control" placeholder="Latitude" [(ngModel)]="lat">
+  </div>
+  <div class="col-md-3">
+    <input class="form-control" placeholder="Longitude" [(ngModel)]="lng">
+  </div>
+  <div class="col-md-2">
+    <input class="form-control" type="number" [(ngModel)]="radius">
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-primary" (click)="search()">Search</button>
+  </div>
+</div>
+
+<div *ngIf="loading">Searching...</div>
+<div *ngIf="!loading && results.length === 0" class="alert alert-info">No tasks found</div>
+
+<ul class="list-group">
+  <li *ngFor="let r of results" class="list-group-item">
+    <strong>{{r.title}}</strong> - {{r.description}}
+    <div class="small">Distance and other details depend on backend</div>
+  </li>
+</ul>

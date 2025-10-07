@@ -1,0 +1,24 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h3>Register</h3>
+    <form (ngSubmit)="submit()" [formGroup]="form">
+      <div class="mb-3">
+        <label>Username</label>
+        <input class="form-control" formControlName="username">
+      </div>
+      <div class="mb-3">
+        <label>Password</label>
+        <input class="form-control" type="password" formControlName="password">
+      </div>
+      <div class="mb-3">
+        <label>Role</label>
+        <select class="form-control" formControlName="role">
+          <option value="user">user</option>
+          <option value="admin">admin</option>
+        </select>
+      </div>
+      <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+      <button class="btn btn-success">Register</button>
+    </form>
+  </div>
+</div>

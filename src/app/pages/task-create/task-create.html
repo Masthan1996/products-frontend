@@ -1,0 +1,27 @@
+<h4>Create Task</h4>
+<form (ngSubmit)="submit()" [formGroup]="form">
+  <div class="mb-3">
+    <label>Title</label>
+    <input class="form-control" formControlName="title">
+  </div>
+  <div class="mb-3">
+    <label>Description</label>
+    <textarea class="form-control" formControlName="description"></textarea>
+  </div>
+  <div class="mb-3">
+    <label>Due date</label>
+    <input type="date" class="form-control" formControlName="due_date">
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Latitude</label>
+      <input class="form-control" formControlName="latitude" placeholder="12.95">
+    </div>
+    <div class="col">
+      <label>Longitude</label>
+      <input class="form-control" formControlName="longitude" placeholder="77.6">
+    </div>
+  </div>
+  <div *ngIf="error" class="alert alert-danger mt-2">{{error}}</div>
+  <button class="btn btn-success mt-3" [disabled]="saving">Save</button>
+</form>

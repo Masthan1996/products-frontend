@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">TaskWorkflow</a>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" *ngIf="!auth.user"><a routerLink="/login" class="nav-link">Login</a></li>
+        <li class="nav-item" *ngIf="!auth.user"><a routerLink="/register" class="nav-link">Register</a></li>
+        <li class="nav-item" *ngIf="auth.user"><a routerLink="/" class="nav-link">My Tasks</a></li>
+        <li class="nav-item" *ngIf="auth.user"><a routerLink="/create" class="nav-link">Create</a></li>
+        <li class="nav-item" *ngIf="auth.isAdmin()"><a routerLink="/admin" class="nav-link">Admin</a></li>
+        <li class="nav-item" *ngIf="auth.user"><a (click)="logout()" class="nav-link">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container mt-4">
+    <router-outlet></router-outlet>
+  </div>

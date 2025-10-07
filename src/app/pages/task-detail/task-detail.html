@@ -1,0 +1,32 @@
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="!loading && task">
+  <h4>{{task.title}} <small class="text-muted">{{task.status}}</small></h4>
+  <p>{{task.description}}</p>
+  <p><strong>Due:</strong> {{task.due_date | date}}</p>
+
+  <h5>Documents</h5>
+  <div *ngIf="task.documents?.length === 0" class="mb-2">No documents attached</div>
+  <!-- <ul class="list-group mb-3">
+    <li class="list-group-item" *ngFor="let d of task.documents">
+      <div class="d-flex justify-content-between">
+        <div>
+          <a [href]="d.url" target="_blank">{{d.url}}</a>
+          <div class="small">Status: {{d.status}}</div>
+          <div *ngIf="d.audit?.length" class="small text-muted">Audit: {{d.audit.map(a => a.action + ' by ' + (a.by || '')).join(', ')}}</div>
+        </div>
+        <div *ngIf="auth.isAdmin()">
+          <button class="btn btn-sm btn-success me-1" (click)="approve(d, 'Approved')" [disabled]="d.status==='Approved'">Approve</button>
+          <button class="btn btn-sm btn-danger" (click)="approve(d, 'Rejected')" [disabled]="d.status==='Rejected'">Reject</button>
+        </div>
+      </div>
+    </li>
+  </ul> -->
+
+  <h5>Attach Document (URL)</h5>
+  <form (ngSubmit)="attach()" [formGroup]="docForm" class="mb-3">
+    <div class="input-group">
+      <input class="form-control" placeholder="https://..." formControlName="url">
+      <button class="btn btn-primary" type="submit" [disabled]="docForm.invalid">Attach</button>
+    </div>
+  </form>
+</div>
