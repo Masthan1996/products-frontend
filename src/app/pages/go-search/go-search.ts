@@ -14,11 +14,11 @@ export class GoSearch {
   radius = 10;
   results: any[] = [];
   loading = false;
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService) { }
 
-  search(){
+  search() {
     if (!this.lat || !this.lng) return;
     this.loading = true;
-    this.api.geoSearch(parseFloat(this.lat), parseFloat(this.lng), this.radius).subscribe((r:any)=>{ this.results = r; this.loading=false; }, ()=>this.loading=false);
+    this.api.geoSearch(parseFloat(this.lat), parseFloat(this.lng), this.radius).subscribe((r: any) => { this.results = r; this.loading = false; }, () => this.loading = false);
   }
 }

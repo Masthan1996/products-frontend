@@ -11,15 +11,15 @@ import { Router } from '@angular/router';
 export class TaskList implements OnInit {
   tasks: any[] = [];
   loading = false;
-  constructor(private api: ApiService, private router: Router) {}
-  ngOnInit(){ this.load(); }
-  load(){
+  constructor(private api: ApiService, private router: Router) { }
+  ngOnInit() { this.load(); }
+  load() {
     this.loading = true;
     this.api.listTasks().subscribe({
-      next: (r:any) => { this.tasks = r; this.loading = false; },
+      next: (r: any) => { this.tasks = r; this.loading = false; },
       error: () => this.loading = false
     });
   }
-  goCreate(){ this.router.navigate(['/create']); }
-  view(t:any){ this.router.navigate(['/task', t._id]); }
+  goCreate() { this.router.navigate(['/create']); }
+  view(t: any) { this.router.navigate(['/task', t._id]); }
 }

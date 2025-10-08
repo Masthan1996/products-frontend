@@ -14,6 +14,7 @@ import { ApiService } from './services/api';
 import { AuthGuard } from './guard/auth.guard';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { GoSearch } from './pages/go-search/go-search';
+import { AdminApprove } from './pages/admin-approve/admin-approve';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { GoSearch } from './pages/go-search/go-search';
     TaskList,
     TaskCreate,
     TaskDetail,
-    GoSearch
+    GoSearch,
+    AdminApprove
   ],
   imports: [
     BrowserModule,

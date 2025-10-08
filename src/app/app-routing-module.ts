@@ -7,16 +7,17 @@ import { TaskDetail } from './pages/task-detail/task-detail';
 import { TaskList } from './pages/task-list/task-list';
 import { AuthGuard } from './guard/auth.guard';
 import { GoSearch } from './pages/go-search/go-search';
+import { AdminApprove } from './pages/admin-approve/admin-approve';
 
 const routes: Routes = [
   { path: '', component: TaskList, canActivate: [AuthGuard] },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
-   { path: 'create', component: TaskCreate, canActivate: [AuthGuard] },
-      { path: 'task/:id', component: TaskDetail, canActivate: [AuthGuard] },
-//       { path: 'admin', component: AdminApproveComponent, canActivate: [AuthGuard] },
-      { path: 'geo', component: GoSearch, canActivate: [AuthGuard] },
-//       { path: '**', redirectTo: '' }
+  { path: 'create', component: TaskCreate, canActivate: [AuthGuard] },
+  { path: 'task/:id', component: TaskDetail, canActivate: [AuthGuard] },
+  { path: 'admin', component: AdminApprove, canActivate: [AuthGuard] },
+  { path: 'geo', component: GoSearch, canActivate: [AuthGuard] },
+  //       { path: '**', redirectTo: '' }
 ];
 
 // { path: '', component: TaskListComponent, canActivate: [AuthGuard] },
